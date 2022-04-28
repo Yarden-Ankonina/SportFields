@@ -12,6 +12,15 @@ export default function Home() {
                 <li>
                 <Link to="/About">About</Link>
                 </li>
+                <li>
+                <Link to="/">Home</Link>
+                </li>
+                <li>
+                <Link to="/LandingPage">LandingPage</Link>
+                </li>
+                <li>
+                <Link to="/NotFound">NotFound</Link>
+                </li>
             </ul>
         </nav>
       </>

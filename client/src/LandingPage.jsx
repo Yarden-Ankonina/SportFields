@@ -8,7 +8,7 @@ export default function LandingPage() {
         LandingPage
       </main>
       <nav>
-          <Link to="Home"> Get Started</Link>
+          <Link to="/"> Get Started</Link>
       </nav>
       </>
   )
