@@ -3,6 +3,7 @@ import About from "./About";
 import {Routes, Route, Link} from "react-router-dom";
 import LandingPage from "./LandingPage";
 import NotFound from "./NotFound";
+import Login from "./Login";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
         <Route path="/">
           <Route path="/" element={<Home />}/>
           <Route path="/about" element={<About />}/>
-          <Route path="LandingPage" element={<LandingPage/>}/>
+          <Route path="/LandingPage" element={<LandingPage/>}/>
           <Route path="*" element={<NotFound/>}/>
+          <Route path="/Login" element={<Login/>}/>
         </Route>
       </Routes>
     </div>

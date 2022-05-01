@@ -5,6 +5,7 @@ export default function LandingPage() {
   return (
       <>
       <main>
+        <h1>SportFields</h1>
         LandingPage
       </main>
       <nav>

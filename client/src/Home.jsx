@@ -6,6 +6,8 @@ export default function Home() {
       <>
         <main>
             <h2>Home</h2>
+            <div className='Map'>
+            </div>
         </main>
         <nav>
             <ul>
@@ -20,6 +22,9 @@ export default function Home() {
                 </li>
                 <li>
                 <Link to="/NotFound">NotFound</Link>
+                </li>
+                <li>
+                <Link to="/Login">Login</Link>
                 </li>
             </ul>
         </nav>
