@@ -5,7 +5,7 @@ import './NotFound.css'
 export default function NotFound() {
   return (
       <div>
-          <Link to="/">Return To Home Page</Link>
+          
     <div className='notFoundContainer'>
         <div className='notFoundMain'></div>
         <svg id="svgWrap_2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 700 250">
@@ -36,9 +36,9 @@ export default function NotFound() {
         </svg>
 
         <h2 className='notFountText'>Page Not Found</h2>
-        <h3 className='notFountCredit'>Page Credit to <a href='https://codepen.io/Tibixx/pen/GRKmppz'>Tibix</a></h3>
+        <h3 className='notFountCredit'>Page Credit to  <a href='https://codepen.io/Tibixx/pen/GRKmppz'>Tibix</a> </h3>
 
-    </div>
+        </div>
     </div>
 
   )
