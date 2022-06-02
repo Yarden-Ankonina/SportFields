@@ -12,6 +12,12 @@ html,body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+
+}
+
 .main-content{
     display: flex;
     background: rgb(34,193,195);
@@ -19,6 +25,9 @@ html,body{
     height: 100%;
     width: 100%;
     flex-direction: column;
+}
+.button{
+ border :none;
 }
 
 .navbar{
@@ -30,6 +39,8 @@ html,body{
     letter-spacing: 0.7px;
     font-size: 18px;
 }
+
+
 
 .map-container{
     display: flex;
