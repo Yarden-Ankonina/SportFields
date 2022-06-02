@@ -112,7 +112,7 @@ button:hover{
 }
 
 .footer-name{
-    color: rgb(0, 11, 210);
+    color: rgb(7, 12, 109);
 }
 
 @media all and (max-width: 750px) {
@@ -122,8 +122,7 @@ button:hover{
 
     .navbar{
         flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.708);
-        margin: 0;
+        background-color: rgb(32, 89, 124);
         padding: 2px;
         align-items: center;
         width: 100%;
