@@ -131,3 +131,10 @@ button:hover{
         margin:3px;
     }
 } 
+
+@media all and (max-width : 500px){
+
+    footer{
+        font-size: 12px;
+    }
+}
