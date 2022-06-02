@@ -32,7 +32,8 @@ button{
 }
 
 button:hover{
-    transform: scale(1.01);
+    transform: scale(1.02);
+    filter: brightness(1.2);
     cursor: pointer;
 }
 
@@ -42,7 +43,7 @@ button:hover{
 
 .main-content{
     display: flex;
-    background: rgb(34,193,195);
+    background-image: linear-gradient(to bottom, #81d0ec, #69c6ec, #51bbec, #36b0eb, #12a4eb);
     height: 100%;
     width: 100%;
     flex-direction: column;
@@ -52,14 +53,19 @@ button:hover{
     display: flex;
     justify-content: space-between;
     background-color: rgb(234, 239, 240);
-    padding: 1em;
+    padding: 1em 5em;
     font-weight:600;
     letter-spacing: 0.7px;
     font-size: 18px;
 }
 
+.navbar-item:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
 .navbar-button{
-    background-color: rgb(31, 105, 135);
+    background-color: #5db8dc;
     color: rgb(5, 41, 49);
 }
 
@@ -71,6 +77,8 @@ button:hover{
     justify-content: center;
     align-items: center;
 }
+
+
 
 #map {
     height: 70%;
