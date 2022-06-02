@@ -111,6 +111,10 @@ button:hover{
     border-radius: 3px;
 }
 
+.footer-name{
+    color: rgb(0, 11, 210);
+}
+
 @media all and (max-width: 750px) {
     .main-content{
         align-items: center;
