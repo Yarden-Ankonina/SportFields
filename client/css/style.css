@@ -20,8 +20,10 @@ a{
 
 }
 
+
+
 .logo{
-    position: relative;
+    margin: 5px;
 }
 
 .main-content{
@@ -31,21 +33,16 @@ a{
     width: 100%;
     flex-direction: column;
 }
-.button{
- border :none;
-}
 
 .navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: rgb(234, 239, 240);
     padding: 1em;
     font-weight:600;
     letter-spacing: 0.7px;
     font-size: 18px;
 }
-
-
 
 .map-container{
     display: flex;
@@ -62,3 +59,9 @@ a{
     border: 1em solid rgb(27, 27, 57);
     border-radius: 3px;
 }
+
+@media all and (max-width: 600px) {
+    .navbar{
+        flex-direction: column;
+    }
+} 
