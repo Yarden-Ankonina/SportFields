@@ -1,0 +1,29 @@
+/* #map {
+    width: 1156px;
+    height: 827px;
+} */
+
+html,body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.mapContainer{
+    display: flex;
+    background-color: rgb(72, 83, 170);
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    height: 50%;
+    width: 50%;
+    border: 1em solid rgb(200, 132, 50);
+    border-radius: 3px;
+}
