@@ -27,7 +27,7 @@ navigator.geolocation.getCurrentPosition(position => {
 }
 var circleOptions = {
     pane: 'panesportData',
-    radius: 35,
+    radius: 4,
     opacity: 1,
     color: 'rgba(35,35,35,1.0)',
     dashArray: '',
@@ -45,9 +45,8 @@ map.on('click',(event)=>{
     console.log(event.latlng)
     let feature = createGeoJsonFeature([event.latlng.lng,event.latlng.lat])
     console.log(feature)
-    L.circle([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
-    // L.circleMaker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
-    // L.circleMarker([event.latlng.lng,event.latlng.lat]).addTo(map)
+    // L.circle([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
+    L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
 //     L.geoJSON(feature,{
 //     }).addTo(map);
 // }) 
