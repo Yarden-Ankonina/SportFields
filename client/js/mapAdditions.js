@@ -1,5 +1,5 @@
 var map = L.map('map', {
-    zoomControl:true, maxZoom:28, minZoom:1
+    zoomControl:true, maxZoom:28, minZoom:1, 
 }).fitBounds([[29.62402167801796,31.794698098564503],[33.62264212599872,38.40611842831727]]);
 var hash = new L.Hash(map);
 map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -8,7 +8,7 @@ var bounds_group = new L.featureGroup([]);
 function setBounds() {
 }
 map.createPane('pane_OSMStandard_0');
-map.getPane('pane_OSMStandard_0').style.zIndex = 400;
+map.getPane('pane_OSMStandard_0').style.zIndex = -1;
 var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     pane: 'pane_OSMStandard_0',
     opacity: 1.0,
@@ -84,7 +84,7 @@ function stylesportData_0() {
     }
 }
 map.createPane('panesportData');
-map.getPane('panesportData').style.zIndex = 401;
+map.getPane('panesportData').style.zIndex = 0;
 map.getPane('panesportData').style['mix-blend-mode'] = 'normal';
 var layersportData = new L.geoJson(jsonsportData, {
     attribution: '',
