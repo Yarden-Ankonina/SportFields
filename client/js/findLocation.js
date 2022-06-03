@@ -45,42 +45,5 @@ map.on('click',(event)=>{
     console.log(event.latlng)
     let feature = createGeoJsonFeature([event.latlng.lng,event.latlng.lat])
     console.log(feature)
-    // L.circle([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
     L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
-//     L.geoJSON(feature,{
-//     }).addTo(map);
-// }) 
 })
-
-// var c = L.circle([32.5,34.5],{
-//     color: 'pink',
-//     fillColor: '#f03',
-//     fillOpacity : 0.5,
-//     radius: 50000,
-// }).addTo(map);
-
-
-// var circleCenter = [32.5, 34.9];
-
-
-//  var circle = L.circle(circleCenter, 50000, circleOptions);
-
-//  circle.addTo(map);
-
-
-// var clickCircle;
-
-// function onMapClick(e) {
-//     console.log
-//     if (clickCircle != undefined) {
-//       map.removeLayer(clickCircle);
-//     };
-
-//     clickCircle = L.circle(e.latlng, 1609 * 3, {
-//         color: '#f07300',
-//         fillOpacity: 0,
-//         opacity: 0.5
-//       }).addTo(map);
-// }
-
-//     map.on('click', onMapClick);
