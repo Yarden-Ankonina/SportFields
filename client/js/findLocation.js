@@ -27,7 +27,7 @@ navigator.geolocation.getCurrentPosition(position => {
 }
 var circleOptions = {
     pane: 'panesportData',
-    radius: 4,
+    radius: 6,
     opacity: 1,
     color: 'rgba(35,35,35,1.0)',
     dashArray: '',
