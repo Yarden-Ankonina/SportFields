@@ -136,7 +136,6 @@ footer{
 
     .navbar{
         flex-direction: column;
-        background-color: rgb(32, 89, 124);
         padding: 2px;
         align-items: center;
         width: 100%;
