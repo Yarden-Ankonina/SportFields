@@ -1,9 +1,13 @@
 let coords;
-navigator.geolocation.getCurrentPosition(position => {
-    coords = position.coords;
-    // Show a map centered at latitude / longitude.
-    createMarker([coords.latitude,coords.longitude])
-  });
+
+let myLocation = document.getElementsByClassName("my-location")[0]
+myLocation.addEventListener('click',()=>{
+    navigator.geolocation.getCurrentPosition(position => {
+        coords = position.coords;
+        // Show a map centered at latitude / longitude.
+        createMarker([coords.latitude,coords.longitude])
+      });
+})
 
  function createMarker(location){
     L.marker(location).addTo(map)
