@@ -83,6 +83,10 @@ function stylesportData_0() {
         interactive: true,
     }
 }
+function notify(e){
+    console.log(e.sourceTarget.feature.properties)
+}
+
 map.createPane('panesportData');
 map.getPane('panesportData').style.zIndex = 0;
 map.getPane('panesportData').style['mix-blend-mode'] = 'normal';
@@ -96,9 +100,9 @@ var layersportData = new L.geoJson(jsonsportData, {
     pointToLayer: function (feature, latlng) {
         var context = {
             feature: feature,
-            variables: {}
+            variables: {},
         };
-        return L.circleMarker(latlng, stylesportData_0(feature));
+        return L.circleMarker(latlng, stylesportData_0(feature)).on('click',notify);
     },
 });
 bounds_group.addLayer(layersportData);

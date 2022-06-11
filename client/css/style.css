@@ -39,7 +39,9 @@ button:hover{
 
 .logo{
     padding: 0.7em;
+    padding-left: 3em;
     border-radius: 1px;
+    padding-left: 20px;
 }
 .background{
     position: absolute;
@@ -163,10 +165,60 @@ button:hover{
     background-image: url("https://img.icons8.com/arcade/344/experimental-marker-arcade.png");
     background-size: cover;
 }
-.my-location:hover{
-    filter: brightness(1.1);
+.on-map:hover{
+    filter: brightness(1.02);
     transform: scale(1.01);
     cursor: pointer;
+}
+
+.field-data{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    top: 25%;
+    left: 25%;
+    width: 40vw;
+    height: 40vh;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: #eff6f8bd;
+    box-shadow: 1px 5px 5px 2px rgb(111, 115, 120);
+    z-index: 2;
+}
+
+.field-data:not([class="collapse"]){
+    display: flex;
+}
+
+.field-data[class*="collapse"]{
+    display: none;
+}
+
+.field-data-input{
+    text-align: center;
+    width: 50%;
+    margin: 0.4em;
+    background-color: rgb(83, 103, 115);
+    color: rgb(255, 255, 255);
+    padding: 0.2em;
+}
+
+.field-data-exit{
+    align-self: flex-end;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.field-data-exit:hover{
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+
+.field-data-submit{
+    margin: 1em;
+    background-color: rgb(112, 228, 158);
 }
 
 #map {
@@ -175,6 +227,7 @@ button:hover{
     border: 1px solid hsl(197, 100%, 67%);
     z-index: 1;
 }
+
 
 
 footer{
@@ -225,10 +278,18 @@ footer{
         visibility: visible;
         position: relative;
     }
+    .field-data{
+        left: 10vw;
+        width: 80vw;
+    }
+    .field-data-input{
+        width: 80%;
+    }
     .my-location{
         width: 35px;
         height: 35px;
     }
+    
 } 
 
 @media all and (max-width : 500px){
