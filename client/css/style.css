@@ -220,6 +220,9 @@ button:hover{
     margin: 1em;
     background-color: rgb(112, 228, 158);
 }
+.field-data-coordinates{
+    background-image: url();
+}
 
 #map {
     height: 100%;
