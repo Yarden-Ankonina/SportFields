@@ -1,13 +1,20 @@
+dragElement(fieldData);
 
-fieldData.addEventListener('mousedown',()=>{
-  dragElement(fieldData);
-})
+fieldData.addEventListener('mousedown',async (e)=>{
+  console.log("down")
+  if(e.target.tagName !== "INPUT"){
+    dragElement(fieldData);
+  }
+  })
 
-function dragElement(elmnt) {
+  function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
     elmnt.onmousedown = dragMouseDown;
-
+   
+    // if(dragFirstClick){
+    //   dragMouseDown()
+    //   dragFirstClick = false
+    // }
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
@@ -15,6 +22,7 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // call a function whenever the cursor moves:
+    console.log("drag")
     document.onmousemove = elementDrag;
     document.onmouseup = closeDragElement;
   }
@@ -36,7 +44,9 @@ function dragElement(elmnt) {
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
-    elmnt.onmousedown = null;
-
+    if(e.target.tagName === "INPUT"){
+      elmnt.onmousedown = null;
+    }
+    
   }
 }
