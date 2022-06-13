@@ -10,7 +10,8 @@ myLocation.addEventListener('click',()=>{
         // Show a map centered at latitude / longitude.
         createMarker([coords.latitude,coords.longitude])
         // createCircle([coords.latitude,coords.longitude])
-        map.setView([coords.latitude,coords.longitude], 12);
+        let zoom = (map._zoom > 12 )? map._zoom : 12
+        map.setView([coords.latitude,coords.longitude], zoom);
       });
 })
 
