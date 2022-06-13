@@ -1,7 +1,6 @@
-// dragElement(fieldData);
+fieldData.addEventListener()
 
 fieldData.addEventListener('mousedown',async (e)=>{
-  console.log("down")
   console.log(e.target.tagName)
   if(e.target.tagName === "FORM"){
     dragElement(fieldData);
@@ -23,7 +22,6 @@ fieldData.addEventListener('mousedown',async (e)=>{
     pos3 = e.clientX;
     pos4 = e.clientY;
     // call a function whenever the cursor moves:
-    console.log("drag")
     document.onmousemove = elementDrag;
     document.onmouseup = closeDragElement;
   }
