@@ -15,11 +15,11 @@ fieldDataSubmit.addEventListener('click',()=>{
     fieldData.classList.toggle("collapse")
 })
 
-// let mapElement = document.getElementById(map)
-// let coordsText = document.getElementsByClassName("field-data-coordinates")[0]
-// let coordsButton = document.getElementsByClassName("field-data-coordinates-button")[0]
-// coordsButton.addEventListener('click',()=>{
-//     coordsText.innerHTML = map.getCenter()
-// })
+let mapElement = document.getElementById(map)
+let coordsText = document.getElementsByClassName("field-data-coordinates")[0]
+let coordsButton = document.getElementsByClassName("field-data-coordinates-button")[0]
+coordsButton.addEventListener('click',()=>{
+    coordsText.innerHTML = map.getCenter()
+})
 
 

@@ -270,6 +270,11 @@ footer{
     color: rgb(7, 12, 109);
 
 }
+@media all and (max-width: 1250px){
+    .field-data-input{
+        width: 80%;
+    }
+}
 
 @media all and (max-width: 750px) {
     .main-content{
@@ -327,11 +332,7 @@ footer{
     }
 
     .field-data{
-        left: 10vw;
-        width: 80vw;
-    }
-    .field-data-input{
-        width: 80%;
+        width: 50vw;
     }
     .my-location{
         width: 35px;
@@ -348,7 +349,11 @@ footer{
 }
 
 /* Here we extra css classes that dont have html tags  */
-
+@media all and (max-width: 450px){
+    .field-data{
+        width: 100vw;
+    }
+}
 
 
 
