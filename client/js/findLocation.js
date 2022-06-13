@@ -1,3 +1,6 @@
+//initialize
+map.setView([31.644,35.107], 7);
+
 let coords;
 
 let myLocation = document.getElementsByClassName("my-location")[0]
@@ -6,14 +9,20 @@ myLocation.addEventListener('click',()=>{
         coords = position.coords;
         // Show a map centered at latitude / longitude.
         createMarker([coords.latitude,coords.longitude])
+        // createCircle([coords.latitude,coords.longitude])
+        map.setView([coords.latitude,coords.longitude], 12);
       });
 })
 
  function createMarker(location){
     L.marker(location).addTo(map)
-    .bindPopup('My Location')
+    .bindPopup('My Location :' + location.toString())
     .openPopup();
  }
+
+//  function createCircle(location){
+//     L.circle(location,{radius:1000}).addTo(map)
+//  }
 
  function createGeoJsonFeature(coordinates){
     return{
@@ -52,9 +61,10 @@ map.on('click',(event)=>{
     let feature = createGeoJsonFeature([event.latlng.lng,event.latlng.lat])
     ///console.log(feature)
     ///let tempMarker = L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
-    if(prompt("Do you want to add a new location?\nType 'yes' to confirm") === "yes"){
-        let tempMarker = L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
-    }
+    // if(prompt("Do you want to add a new location?\nType 'yes' to confirm") === "yes"){
+    //     let tempMarker = L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
+    // }
+
 })
 
 // var feature

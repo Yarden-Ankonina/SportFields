@@ -177,8 +177,8 @@ button:hover{
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    top: 25%;
-    left: 25%;
+    top: 0;
+    left: 0;
     width: 40vw;
     height: 40vh;
     padding: 0.5em;
@@ -198,7 +198,7 @@ button:hover{
 
 .field-data-input{
     text-align: center;
-    width: 50%;
+    width: 60%;
     margin: 0.4em;
     background-color: rgb(83, 103, 115);
     color: rgb(255, 255, 255);
@@ -220,8 +220,21 @@ button:hover{
     margin: 1em;
     background-color: rgb(112, 228, 158);
 }
-.field-data-coordinates{
-    background-image: url();
+.field-data-coordinates-button{
+    position: relative;
+    background-image: url("https://img.icons8.com/dotty/344/location-off.png");
+    background-size: cover;
+    margin-left: 1em;
+    padding: 1.2em;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(15, 58, 37, 0);
+    box-shadow: none;
+    border: none;
+}
+
+.field-data-coordinates-button:hover{
+    transform: scale(1.1);
 }
 
 #map {

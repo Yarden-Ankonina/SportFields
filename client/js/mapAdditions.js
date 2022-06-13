@@ -1,5 +1,5 @@
 var map = L.map('map', {
-    zoomControl:true, maxZoom:28, minZoom:1, 
+    zoomControl:true, maxZoom:28, minZoom:1, zoom:7,
 }).fitBounds([[29.62402167801796,31.794698098564503],[33.62264212599872,38.40611842831727]]);
 var hash = new L.Hash(map);
 map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');

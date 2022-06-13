@@ -1,8 +1,9 @@
-dragElement(fieldData);
+// dragElement(fieldData);
 
 fieldData.addEventListener('mousedown',async (e)=>{
   console.log("down")
-  if(e.target.tagName !== "INPUT"){
+  console.log(e.target.tagName)
+  if(e.target.tagName === "FORM"){
     dragElement(fieldData);
   }
   })
