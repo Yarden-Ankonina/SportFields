@@ -56,17 +56,17 @@ var circleOptions = {
 
  var feature
 
-map.on('click',(event)=>{
-    // console.log(event)
-    // console.log(event.latlng)
-    let feature = createGeoJsonFeature([event.latlng.lng,event.latlng.lat])
-    ///console.log(feature)
-    ///let tempMarker = L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
-    // if(prompt("Do you want to add a new location?\nType 'yes' to confirm") === "yes"){
-    //     let tempMarker = L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
-    // }
+// map.on('click',(event)=>{
+//     // console.log(event)
+//     // console.log(event.latlng)
+//     let feature = createGeoJsonFeature([event.latlng.lng,event.latlng.lat])
+//     ///console.log(feature)
+//     ///let tempMarker = L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
+//     // if(prompt("Do you want to add a new location?\nType 'yes' to confirm") === "yes"){
+//     //     let tempMarker = L.circleMarker([event.latlng.lat,event.latlng.lng],circleOptions).addTo(map)
+//     // }
 
-})
+// })
 
 // var feature
 // map.on('click',(event)=>{

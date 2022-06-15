@@ -8,7 +8,9 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/modal.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+
         <style>
         
         </style>
@@ -58,7 +60,7 @@
                     <div>
                        <button type="submit" class="field-data-submit">submit</button>
                         <button class="field-data-coordinates-button"></button>
-                        <p class="field-data-coordinates">coords</p>
+                        <p class="field-data-coordinates">Please chosse field location before submit</p>
                     </div>
                 </form>
                 <div class="my-location tooltip on-map">
@@ -68,6 +70,7 @@
             <footer>Project made by <a class="footer-name" href="https://github.com/Yarden-Ankonina"> Yarden Ankonina</a> ,<a class="footer-name" href="https://github.com/yonatanmsk"> Yehonatan Mesika</a>, <a class="footer-name" href="https://github.com/danielziv94">  Daniel Ziv </a><img style="width:15px; " src="https://img.icons8.com/ios-filled/344/github.png"/></footer> 
         </main>
 
+        <!-- <div class='modal on ' id='modal1'>Hello world</div> -->
         
         <script src="js/qgisFiles/qgis2web_expressions.js"></script>
         <script src="js/qgisFiles/leaflet.js"></script>
@@ -80,10 +83,10 @@
         <script src="js//qgisFiles/labels.js"></script>
         <script src="data/sportData.js"></script>
         <script src="js/mapAdditions.js"></script>
-        <script src="js/createLocations.js"></script>
         <script type="text/javascript" src="js/findLocation.js" defer></script>
         <script type="text/javascript" src="js/style.js" defer></script>
         <script type="text/javascript" src="js/features.js" defer></script>
         <script type="text/javascript" src="js/draggable.js" defer></script>
+        <script type="text/javascript" src="js/modal.js" defer></script>
     </body>
 </html>
