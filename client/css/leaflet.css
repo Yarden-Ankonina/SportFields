@@ -209,9 +209,9 @@
 	cursor: pointer;
 	}
 .leaflet-grab {
-	cursor: -webkit-grab;
+	/* cursor: -webkit-grab;
 	cursor:    -moz-grab;
-	cursor:         grab;
+	cursor:         grab; */
 	}
 .leaflet-crosshair,
 .leaflet-crosshair .leaflet-interactive {

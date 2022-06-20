@@ -32,9 +32,11 @@ function exitModal(){
     el.classList.remove('on');
     el.removeChild(closebtn);
     document.body.removeChild(el)
+    document.body.style.cursor ='pointer'
 }
 
-function createModal(text){
+function createModal(text, isModalResponsed){
+    let isCoordFinal;
     let modalPop = document.createElement('div')
     modalPop.className = "modal on"
     modalPop.setAttribute('id','modalPop')
@@ -53,26 +55,25 @@ function createModal(text){
     modalPop.appendChild(buttonNo)
     document.body.appendChild(modalPop)
 
-    buttonNo.addEventListener('click',exitModal)
+    buttonYes.addEventListener('click',()=>{
+        isCoordFinal = true;
+        isModalResponsed = true
+        exitModal()
+    })
+
+    buttonNo.addEventListener('click',()=>{
+        isModalResponsed = true
+        isCoordFinal = false;
+        removeTempMarker()
+        exitModal()
+    })
+
     return modalPop
 }
 
-// let modalCoord = createModal("Are you sure this is the location?")
-// let modalCoord;
-// modal(modalCoord.id)
-
-// activateModal(false)
-
-function activateModal(turnOnModal){
+function activateModal(turnOnModal, isModalResponsed){
     if(turnOnModal){
-        // document.getElementsByClassName(modalCoord.getAttribute('bg'))[0].style.display = 'block'
-        // modalCoord.style.display = 'block'
-        // modalCoord.classList.add('on')
-        let modalCoord = createModal("Are you sure this is the location?")
+        let modalCoord = createModal("Are you sure this is the location?", isModalResponsed)
         modal(modalCoord.id)
     }
-    // else{
-    //     document.getElementsByClassName(modalCoord.getAttribute('bg'))[0].style.display = 'none'
-    //     modalCoord.style.display = 'none'
-    // }
 }
