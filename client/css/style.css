@@ -59,6 +59,7 @@ button:hover{
  width: 100%;
  height: fit-content;
  justify-content: center;
+ z-index: 2;
 }
 
 .logo{
@@ -278,8 +279,8 @@ select {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    top: 0;
-    left: 0;
+    top: 25%;
+    left: 2%;
     width: fit-content;
     height: fit-content;
     padding: 0.5em;
@@ -288,10 +289,34 @@ select {
     box-shadow: 1px 5px 5px 2px rgb(111, 115, 120);
     z-index: 2;
 }
+.field-edit:not([class="collapse"]){
+   display: flex;
+}
+.field-edit[class*="collapse"]{
+    display: none;
+}
+
+.field-edit-exit{
+    align-self: flex-end;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.field-edit-exit:hover{
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+
+.field-edit-name{
+    font-weight: bold;
+    margin: 0;
+    font-size: 18px;
+}
+
 .field-edit-text{
     display: flex;
     flex-direction: row;
-    font-weight: bold;
+    margin: 0;
 }
 
 .field-edit-pop{
@@ -317,6 +342,13 @@ select {
     background-color: rgba(225, 18, 77, 0.872);
     flex-grow: 1;
     margin: 0.3em;
+}
+.field-edit-result{
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.689);
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
 }
 
 .field-like-button{

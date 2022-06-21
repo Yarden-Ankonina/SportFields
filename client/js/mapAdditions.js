@@ -23,7 +23,7 @@ map.addLayer(layer_OSMStandard_0);
 function popsportData(feature, layer) {
     var popupContent = '<table>\
             <tr>\
-                <td colspan="2">' + (feature.properties['שם_המ'] !== null ? autolinker.link(feature.properties['שם_המ'].toLocaleString()) : '') + '</td>\
+                <td colspan="2">' + (feature.properties['Field name'] !== null ? autolinker.link(feature.properties['Field name'].toLocaleString()) : '') + '</td>\
             </tr>\
             <tr>\
                 <td colspan="2">' + (feature.properties['רשות'] !== null ? autolinker.link(feature.properties['רשות'].toLocaleString()) : '') + '</td>\
@@ -83,10 +83,19 @@ function stylesportData_0() {
         interactive: true,
     }
 }
+let fieldEditName =  document.getElementsByClassName('field-edit-name')[0]
+
 function notify(e){
     console.log(e.sourceTarget.feature.properties)
-    console.log(e.sourceTarget._leaflet_id)
-    layersportData._layers[e.sourceTarget._leaflet_id].setStyle({fillColor :'pink'})
+    console.log(e.originalEvent.active)
+    let layer = layersportData._layers[e.sourceTarget._leaflet_id]
+    console.log(layer)
+
+    if(fieldEdit.classList.contains('collapse')){
+        fieldEdit.classList.toggle('collapse')
+    }
+    fieldEditName.innerHTML = e.sourceTarget.feature.properties['Field name']
+    // layer.setStyle({fillColor :'pink'})
 }
 
 map.createPane('panesportData');
@@ -115,7 +124,7 @@ setBounds();
 /*
  var popupContent = '<table>\
             <tr>\
-                <td colspan="2">' + (feature.properties['שם_המ'] !== null ? autolinker.link(feature.properties['שם_המ'].toLocaleString()) : '') + '</td>\
+                <td colspan="2">' + (feature.properties['Field name'] !== null ? autolinker.link(feature.properties['Field name'].toLocaleString()) : '') + '</td>\
             </tr>\
             <tr>\
                 <td colspan="2">' + (feature.properties['רשות'] !== null ? autolinker.link(feature.properties['רשות'].toLocaleString()) : '') + '</td>\

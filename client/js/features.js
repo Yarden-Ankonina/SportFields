@@ -161,20 +161,21 @@ function removeTempMarker(){
     map.on('mousemove',mapMouseMove)
 }
 
+let fieldEdit = document.getElementsByClassName('field-edit')[0]
 
-        // if(alert("Is this the new location? <br>yes/no")==='yes'){
-        //     isAllowToAddField = false
-        //     isCoordChosen = true
-        // }
-        // else{
-        //     map.removeLayer(tempMarker)
-        // }
+let fieldEditExit = document.getElementsByClassName('field-edit-exit')[0]
 
+fieldEditExit.addEventListener('click',()=>{
+    fieldEdit.classList.toggle('collapse')
+})
 
+let fieldEditLikeButton = document.getElementsByClassName('field-like-button')[0]
+let likedFieldsList = []
+fieldEditLikeButton.addEventListener('click',(e)=>{
+    console.log(e)
+    // likedFieldsList.push()
+})
 
- // let center = map.getCenter()
-    // var myIcon = L.icon({iconUrl : "https://img.icons8.com/ios-filled/344/marker.png",iconSize: [45, 45]})
-    // tempMarker = L.marker([center.lat, center.lng],{icon:myIcon}).addTo(map)
     setTimeout(()=>{
         L.Control.geocoder().addTo(map)
     },2000)                                                                                                         

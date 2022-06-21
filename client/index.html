@@ -72,11 +72,12 @@
                         <p class="field-data-coordinates">Please chosse field location before submit</p>
                     </div>
                 </form>
-                <form class="field-edit" draggable="true">
-                    <span class="field-data-exit">X</span>
+                <form class="field-edit collapse" draggable="true">
+                    <span class="field-edit-exit">X</span>
+                    <p class="field-edit-name">Name</p>
                     <div class="field-edit-text">
                         <p class="field-edit-pop">Popular</p>
-                        <p >?</p>
+                        <p class="field-edit-result"></p>
                     </div>
                     <div>
                         <button class="field-population-empty">Empty</button>
@@ -106,11 +107,11 @@
         <script src="js//qgisFiles/labels.js"></script>
         <script src="data/sportData.js"></script>
         <script src="js/mapAdditions.js"></script>
-        <script type="text/javascript" src="js/findLocation.js" ></script>
-        <script type="text/javascript" src="js/style.js" ></script>
-        <script type="text/javascript" src="js/features.js" ></script>
-        <script type="text/javascript" src="js/draggable.js" ></script>
-        <script type="text/javascript" src="js/modal.js" ></script>
+        <script type="text/javascript" src="js/findLocation.js" defer></script>
+        <script type="text/javascript" src="js/style.js" defer></script>
+        <script type="text/javascript" src="js/features.js" defer></script>
+        <script type="text/javascript" src="js/draggable.js" defer></script>
+        <script type="text/javascript" src="js/modal.js" defer></script>
         <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     </body>
 </html>

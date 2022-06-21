@@ -1,5 +1,4 @@
 
-let fieldEdit = document.getElementsByClassName('field-edit')[0]
 
 fieldEdit.addEventListener('mousedown',async (e)=>{
   if(e.target.tagName === "FORM"){
