@@ -99,6 +99,9 @@ function mapMouseMove(event){
         let isModalResponsed = false
         // tempMarker = L.circleMarker([mepEvent.latlng.lat,mepEvent.latlng.lng], tempOptions).on('click',aa).addTo(map)
         tempMarker = L.geoJSON(createFeature([mepEvent.latlng.lng,mepEvent.latlng.lat]),{
+        attribution: '',
+        interactive: true,  
+        layerName: 'layersportData',
         pointToLayer: function (feature, latlng) {
             var context = {
                 feature: feature,
@@ -113,6 +116,7 @@ function mapMouseMove(event){
         isCoordChosen = true
     }
 }
+
 
 function createFeature(coordinates){
     let elementsCollection = document.getElementsByClassName("field-data-input")
@@ -157,6 +161,7 @@ function removeTempMarker(){
     map.on('mousemove',mapMouseMove)
 }
 
+
         // if(alert("Is this the new location? <br>yes/no")==='yes'){
         //     isAllowToAddField = false
         //     isCoordChosen = true
@@ -170,3 +175,6 @@ function removeTempMarker(){
  // let center = map.getCenter()
     // var myIcon = L.icon({iconUrl : "https://img.icons8.com/ios-filled/344/marker.png",iconSize: [45, 45]})
     // tempMarker = L.marker([center.lat, center.lng],{icon:myIcon}).addTo(map)
+    setTimeout(()=>{
+        L.Control.geocoder().addTo(map)
+    },2000)                                                                                                         

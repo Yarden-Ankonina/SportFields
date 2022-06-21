@@ -85,6 +85,8 @@ function stylesportData_0() {
 }
 function notify(e){
     console.log(e.sourceTarget.feature.properties)
+    console.log(e.sourceTarget._leaflet_id)
+    layersportData._layers[e.sourceTarget._leaflet_id].setStyle({fillColor :'pink'})
 }
 
 map.createPane('panesportData');
