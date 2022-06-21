@@ -284,7 +284,7 @@ select {
     height: fit-content;
     padding: 0.5em;
     border-radius: 5px;
-    background-color: #fafeffbd;
+    background-color: #e8f5f8cd;
     box-shadow: 1px 5px 5px 2px rgb(111, 115, 120);
     z-index: 2;
 }
@@ -292,16 +292,19 @@ select {
     display: flex;
     flex-direction: row;
     font-weight: bold;
-    width: 80%;
-    justify-content: space-evenly;
+}
+
+.field-edit-pop{
+    margin-right: 0.5em;
 }
 
 .field-edit:hover{
+    background-color: #f5fdffcd;
     cursor: pointer;
 }
 
 .field-population-empty{
-    background-color: rgba(0, 255, 128, 0.772);
+    background-color: rgba(3, 242, 122, 0.772);
     flex-grow: 1;
     margin: 0.3em;
 }
