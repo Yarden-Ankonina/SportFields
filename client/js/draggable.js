@@ -1,4 +1,12 @@
 
+let fieldEdit = document.getElementsByClassName('field-edit')[0]
+
+fieldEdit.addEventListener('mousedown',async (e)=>{
+  if(e.target.tagName === "FORM"){
+    dragElement(fieldEdit);
+  }
+  })
+
 fieldData.addEventListener('mousedown',async (e)=>{
   if(e.target.tagName === "FORM"){
     dragElement(fieldData);

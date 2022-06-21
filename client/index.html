@@ -43,7 +43,7 @@
                 <div class="navbar-home navbar-item collapsible-item"><a class="" href="?">Home</a></div>
                 <!-- <div class="navbar-home navbar-item collapsible-item">Search &#128269;</div> -->
                 <div id="navbar-new" class="navbar-home navbar-item collapsible-item">New Field</div>
-                <div class="navbar-home navbar-item collapsible-item">Likes &#10084;</div>
+                <div class="navbar-home navbar-item collapsible-item">Likes <span style="color:rgba(225, 18, 77, 0.872)">&#10084</span></div>
                 <div class="navbar-home navbar-item collapsible-item">About</div>
                 
             </nav>
@@ -71,6 +71,20 @@
                         <button class="field-data-coordinates-button"></button>
                         <p class="field-data-coordinates">Please chosse field location before submit</p>
                     </div>
+                </form>
+                <form class="field-edit" draggable="true">
+                    <span class="field-data-exit">X</span>
+                    <div class="field-edit-text">
+                        <p >Popular</p>
+                        <p >?</p>
+                    </div>
+                    <div>
+                        <button class="field-population-empty">Empty</button>
+                        <button class="field-population-pop">Populated</button>
+                        <button class="field-population-crowded">Crowded</button>
+                    </div>
+
+                    <button class="field-like-button">&#10084</button>
                 </form>
                 <div class="my-location tooltip on-map">
                     <span class="tooltiptext">Find my location</span>
