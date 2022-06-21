@@ -1,7 +1,12 @@
 
 let fieldData = document.getElementsByClassName("field-data")[0]
 let newFieldDataExit = document.getElementsByClassName("field-data-exit")[0]
+
 newFieldDataExit.addEventListener('click',()=>{
+    isAllowToAddField = false
+    map.off('mouseover',mapOver)
+    map.off('mousemove',mapMouseMove)
+    document.body.style.cursor = "auto";
     fieldData.classList.toggle("collapse")
 })
 
@@ -9,7 +14,6 @@ let newFieldDataButton = document.getElementById("navbar-new")
 newFieldDataButton.addEventListener('click', ()=>{
     fieldData.classList.toggle("collapse")
     if(!fieldData.classList.contains("collapse")){
-        isAllowToAddField = true
         initForm()
     }
 })
@@ -26,7 +30,7 @@ let formFilled = isFormFilled()
         map.off('mousemove',mapMouseMove)
         coordsText.innerHTML = "Please chosse field location before submit"
         await cleanForm()
-        // fieldData.submit()
+        document.body.style.cursor = "auto";
         fieldData.classList.toggle("collapse")
     }
 })
@@ -48,13 +52,15 @@ function cleanForm(){
 
 function isFormFilled(){
     let formFilled = true
-    Array.from(fieldData.children).forEach(element => {
+    Array.from(document.getElementsByClassName("field-data-input"))
+    .forEach(element => {
         if(element.tagName === 'INPUT'){
             if(element.value === ''){
                 formFilled = false
             }
         }
     });
+    document.getElementById('field-sport')
     return formFilled
 }
 
@@ -67,6 +73,7 @@ let isAllowToAddField = false
 coordsButton.addEventListener('click',()=>{
     let formFilled = isFormFilled() 
    if(formFilled){
+    isAllowToAddField = true
     map.on('mouseover',mapOver)
    }
 })
@@ -82,22 +89,64 @@ function mapMouseMove(event){
         coordsText.innerHTML = "Latitude: " + event.latlng.lat +"<br>Longitude : " + event.latlng.lng
     }
     map.once('click',(event)=>{
-        let feature = createGeoJsonFeature([event.latlng.lng,event.latlng.lat])
         addField(event)
     },{once:true})
 }
-
  function addField(mepEvent){
     if(isAllowToAddField){
         var tempOptions = circleOptions;
-        tempOptions.fillColor = 'green';
+        // tempOptions.fillColor = 'green';
         let isModalResponsed = false
-        tempMarker = L.circleMarker([mepEvent.latlng.lat,mepEvent.latlng.lng], tempOptions).addTo(map)
+        // tempMarker = L.circleMarker([mepEvent.latlng.lat,mepEvent.latlng.lng], tempOptions).on('click',aa).addTo(map)
+        tempMarker = L.geoJSON(createFeature([mepEvent.latlng.lng,mepEvent.latlng.lat]),{
+        pointToLayer: function (feature, latlng) {
+            var context = {
+                feature: feature,
+                variables: {},
+            };
+            return L.circleMarker(latlng, tempOptions).on('click',notify);
+        },}).addTo(map)
+        addLayerPopup()
         activateModal(true, isModalResponsed)
         coordsText.innerHTML = "Latitude: " + mepEvent.latlng.lat +"<br>Longitude : " + mepEvent.latlng.lng
         isAllowToAddField = false
         isCoordChosen = true
     }
+}
+
+function createFeature(coordinates){
+    let elementsCollection = document.getElementsByClassName("field-data-input")
+    var feature1 = {
+        "type": "Feature",
+        "properties": {
+            "Field name": elementsCollection[0].value,
+            "Sport Type": document.getElementsByClassName('field-data-sport-select')[0].value,
+            "City": elementsCollection[1].value,
+            "Address": elementsCollection[2].value,
+            "Number": elementsCollection[3].value
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": coordinates
+        }
+    }
+    
+    return feature1
+}
+
+function addLayerPopup(){
+    let popupString = ''
+    Array.from(document.getElementsByClassName("field-data-input"))
+    .forEach(element => {
+        if(element.tagName === 'INPUT'){
+            popupString += element.previousElementSibling.innerHTML + ': '
+            popupString += element.value.toString() +'<br/>'
+        }
+    });
+    let select = document.getElementsByClassName('field-data-sport-select')[0]
+    popupString += select.previousElementSibling.innerHTML + ': '
+    popupString += select.value + '<br/>'
+    tempMarker.bindPopup(popupString)
 }
 
 function removeTempMarker(){

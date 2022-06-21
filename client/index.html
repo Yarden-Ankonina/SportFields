@@ -48,14 +48,22 @@
             </nav>
             <div class="map-container">
                 <div id="map"></div>
-                <!-- <form class="field-data on-map" draggable="true" action="/client/index.html" method="get"> -->
                 <form class="field-data on-map collapse" draggable="true">
                     <span class="field-data-exit">X</span>
-                    <label for="field-data-name">city</label>
-                    <input class="field-data-input" draggable="false" type="text" required>
-                    <label for="field-data-name">address</label>
+                    <label for="field-data-name">Field name</label>
                     <input class="field-data-input" type="text" required>
-                    <label for="field-data-name">number</label>
+                    <label for="field-data-name">Sport type</label>
+                    <select class="field-data-sport-select" id="field-sports" required>
+                        <option>Soccer</option>
+                        <option>Basketball</option>
+                        <option>Running</option>
+                        <option>Other</option>
+                      </select>
+                    <label for="field-data-name">City</label>
+                    <input class="field-data-input" draggable="false" type="text" required>
+                    <label for="field-data-name">Address</label>
+                    <input class="field-data-input" type="text" required>
+                    <label for="field-data-name" >Number</label>
                     <input type="number" class="field-data-input" type="text" required>
                     <div>
                        <button type="submit" value="Submit" class="field-data-submit">submit</button>

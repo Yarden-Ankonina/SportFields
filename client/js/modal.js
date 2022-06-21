@@ -59,6 +59,7 @@ function createModal(text, isModalResponsed){
         isCoordFinal = true;
         isModalResponsed = true
         exitModal()
+        document.getElementsByClassName('field-data-submit')[0].click()
     })
 
     buttonNo.addEventListener('click',()=>{
