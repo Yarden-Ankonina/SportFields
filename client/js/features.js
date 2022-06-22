@@ -92,16 +92,16 @@ function mapMouseMove(event){
         addField(event)
     },{once:true})
 }
- function addField(mepEvent){
+let tt
+ function addField(mapEvent){
     if(isAllowToAddField){
         var tempOptions = circleOptions;
-        // tempOptions.fillColor = 'green';
         let isModalResponsed = false
-        // tempMarker = L.circleMarker([mepEvent.latlng.lat,mepEvent.latlng.lng], tempOptions).on('click',aa).addTo(map)
-        tempMarker = L.geoJSON(createFeature([mepEvent.latlng.lng,mepEvent.latlng.lat]),{
+        tempMarker = L.geoJSON(createFeature([mapEvent.latlng.lng,mapEvent.latlng.lat]),{
         attribution: '',
         interactive: true,  
         layerName: 'layersportData',
+        pane: 'panesportData',
         pointToLayer: function (feature, latlng) {
             var context = {
                 feature: feature,
@@ -111,12 +111,17 @@ function mapMouseMove(event){
         },}).addTo(map)
         addLayerPopup()
         activateModal(true, isModalResponsed)
-        coordsText.innerHTML = "Latitude: " + mepEvent.latlng.lat +"<br>Longitude : " + mepEvent.latlng.lng
+        coordsText.innerHTML = "Latitude: " + mapEvent.latlng.lat +"<br>Longitude : " + mapEvent.latlng.lng
         isAllowToAddField = false
         isCoordChosen = true
+        // console.log(tempMarker._layers[tempMarker._leaflet_id - 1])
+        addMarker(tempMarker)
     }
 }
 
+function addMarker(e,tempMarker){
+    layersportData._layers[e._leaflet_id - 1] = e._layers[e._leaflet_id - 1]
+}
 
 function createFeature(coordinates){
     let elementsCollection = document.getElementsByClassName("field-data-input")
@@ -124,6 +129,7 @@ function createFeature(coordinates){
         "type": "Feature",
         "properties": {
             "Field name": elementsCollection[0].value,
+            "Popular" : '',
             "Sport Type": document.getElementsByClassName('field-data-sport-select')[0].value,
             "City": elementsCollection[1].value,
             "Address": elementsCollection[2].value,
@@ -171,6 +177,7 @@ fieldEditExit.addEventListener('click',()=>{
 
 let fieldEditPopularResult = document.getElementsByClassName('field-edit-result')[0]
 function updatePopularity(){
+    console.log(currentLayer)
     let popularity = currentLayer.feature.properties.Popular
     let backgroundColor
     if( popularity !== ''){
@@ -202,6 +209,9 @@ fieldEditPop.addEventListener('click',changePopulation)
 fieldEditCrowded.addEventListener('click',changePopulation)
 
 function changePopulation(e){
+    console.log(e)
+    console.log(currentLayer)
+
     currentLayer.feature.properties.Popular = e.srcElement.innerHTML
     updatePopularity()
 }
