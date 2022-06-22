@@ -9,7 +9,6 @@ const initMapData = ()=>{
 initMapData()
 setInterval( initMapData, 1000 * 60 * 60 * 24)
 ///reset popularity once a day
-
 var map = L.map('map', {
     zoomControl:true, maxZoom:28, minZoom:1, zoom:7,
 }).fitBounds([[29.62402167801796,31.794698098564503],[33.62264212599872,38.40611842831727]]);
@@ -99,10 +98,20 @@ let fieldEditName =  document.getElementsByClassName('field-edit-name')[0]
 
 let currentLayer
 function notify(e){
-    let layer = layersportData._layers[e.sourceTarget._leaflet_id]
-    currentLayer = layer
+    let layer
+    if(layersportData._layers[e.sourceTarget._leaflet_id] === undefined){
+        console.log( 'null' )
+        addMarker(e)
+        console.log(layersportData._layers[e.sourceTarget._leaflet_id])
+        layer = layersportData._layers[e.sourceTarget._leaflet_id]
+        currentLayer = layer
+    }
+    else{
+        layer = layersportData._layers[e.sourceTarget._leaflet_id]
+        currentLayer = layer
+    }
     console.log(layer)
-
+    console.log(currentLayer)
     if(fieldEdit.classList.contains('collapse')){
         fieldEdit.classList.toggle('collapse')
     }
@@ -132,92 +141,3 @@ bounds_group.addLayer(layersportData);
 map.addLayer(layersportData);
 setBounds();
 
-
-/*
- var popupContent = '<table>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['Field name'] !== null ? autolinker.link(feature.properties['Field name'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['רשות'] !== null ? autolinker.link(feature.properties['רשות'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['ישוב'] !== null ? autolinker.link(feature.properties['ישוב'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מספר'] !== null ? autolinker.link(feature.properties['מספר'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['סוג_מ'] !== null ? autolinker.link(feature.properties['סוג_מ'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['שכונה'] !== null ? autolinker.link(feature.properties['שכונה'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['רחוב'] !== null ? autolinker.link(feature.properties['רחוב'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מספר_1'] !== null ? autolinker.link(feature.properties['מספר_1'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['ציר_X'] !== null ? autolinker.link(feature.properties['ציר_X'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['ציר_Y'] !== null ? autolinker.link(feature.properties['ציר_Y'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מספר_2'] !== null ? autolinker.link(feature.properties['מספר_2'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['בעלי'] !== null ? autolinker.link(feature.properties['בעלי'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['גוף_מ'] !== null ? autolinker.link(feature.properties['גוף_מ'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['טלפון'] !== null ? autolinker.link(feature.properties['טלפון'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['דואל'] !== null ? autolinker.link(feature.properties['דואל'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מספר_3'] !== null ? autolinker.link(feature.properties['מספר_3'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מספר_4'] !== null ? autolinker.link(feature.properties['מספר_4'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מספר_5'] !== null ? autolinker.link(feature.properties['מספר_5'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['פנוי'] !== null ? autolinker.link(feature.properties['פנוי'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['גידור'] !== null ? autolinker.link(feature.properties['גידור'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['תאורה'] !== null ? autolinker.link(feature.properties['תאורה'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['נגישו'] !== null ? autolinker.link(feature.properties['נגישו'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['חניה'] !== null ? autolinker.link(feature.properties['חניה'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מצב_ה'] !== null ? autolinker.link(feature.properties['מצב_ה'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['מתקן'] !== null ? autolinker.link(feature.properties['מתקן'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['שימוש'] !== null ? autolinker.link(feature.properties['שימוש'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['שנת_ה'] !== null ? autolinker.link(feature.properties['שנת_ה'].toLocaleString()) : '') + '</td>\
-            </tr>\
-            <tr>\
-                <td colspan="2">' + (feature.properties['משרת'] !== null ? autolinker.link(feature.properties['משרת'].toLocaleString()) : '') + '</td>\
-            </tr>\
-        </table>';
-*/
