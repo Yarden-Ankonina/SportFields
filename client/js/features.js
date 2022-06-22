@@ -132,7 +132,7 @@ function createFeature(coordinates){
         "type": "Feature",
         "properties": {
             "Field name": elementsCollection[0].value,
-            "Popular" : '',
+            "Popularity" : '',
             "Sport Type": document.getElementsByClassName('field-data-sport-select')[0].value,
             "City": elementsCollection[1].value,
             "Address": elementsCollection[2].value,
@@ -179,7 +179,7 @@ fieldEditExit.addEventListener('click',()=>{
 
 let fieldEditPopularResult = document.getElementsByClassName('field-edit-result')[0]
 function updatePopularity(){
-    let popularity = currentLayer.feature.properties.Popular
+    let popularity = currentLayer.feature.properties.Popularity
     let backgroundColor
     if( popularity !== ''){
         switch(popularity){
@@ -210,7 +210,7 @@ fieldEditPop.addEventListener('click',changePopulation)
 fieldEditCrowded.addEventListener('click',changePopulation)
 
 function changePopulation(e){
-    currentLayer.feature.properties.Popular = e.srcElement.innerHTML
+    currentLayer.feature.properties.Popularity = e.srcElement.innerHTML
     updatePopularity()
 }
 

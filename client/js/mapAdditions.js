@@ -1,7 +1,7 @@
 
 const initMapData = ()=>{
     Array.from(jsonsportData.features).forEach(element => {
-        element.properties['Popular'] = ''
+        element.properties['Popularity'] = ''
     });
     
 }
@@ -154,6 +154,7 @@ function createLayerFromData(){
         dataVar: 'jsonSportAddedDataContainer',
         layerName: 'layersportDataAddition',
         pane: 'panesportData',
+        onEachFeature: popupAttach,
         pointToLayer: function (feature, latlng) {
             var context = {
                 feature: feature,
@@ -163,7 +164,15 @@ function createLayerFromData(){
         },
     });
 map.addLayer(layersportDataAddition);
-console.log(layersportDataAddition)
+}
+
+function popupAttach(e,layer){
+    let popupText = ''
+    Object.entries(e.properties).forEach(element =>{
+        popupText += element[0] +": "+ element[1] + '<br/>'
+    })
+    console.log(e.properties)
+    layer.bindPopup(popupText)
 }
 
 function notify2(e){
