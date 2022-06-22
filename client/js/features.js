@@ -169,6 +169,43 @@ fieldEditExit.addEventListener('click',()=>{
     fieldEdit.classList.toggle('collapse')
 })
 
+let fieldEditPopularResult = document.getElementsByClassName('field-edit-result')[0]
+function updatePopularity(){
+    let popularity = currentLayer.feature.properties.Popular
+    let backgroundColor
+    if( popularity !== ''){
+        switch(popularity){
+            case 'Empty':
+                backgroundColor = "green"
+                break;
+            case 'Populated':
+                backgroundColor = "yellow"
+                break;
+            case 'Crowded':
+            backgroundColor = "red"
+            break;
+        }
+    }
+    else{
+        backgroundColor = "transparent"
+    }
+    fieldEditPopularResult.style.backgroundColor= backgroundColor
+
+}
+
+let fieldEditEmpty = document.getElementsByClassName('field-population-empty')[0]
+let fieldEditPop = document.getElementsByClassName('field-population-pop')[0]
+let fieldEditCrowded = document.getElementsByClassName('field-population-crowded')[0]
+
+fieldEditEmpty.addEventListener('click',changePopulation)
+fieldEditPop.addEventListener('click',changePopulation)
+fieldEditCrowded.addEventListener('click',changePopulation)
+
+function changePopulation(e){
+    currentLayer.feature.properties.Popular = e.srcElement.innerHTML
+    updatePopularity()
+}
+
 let fieldEditLikeButton = document.getElementsByClassName('field-like-button')[0]
 let likedFieldsList = []
 fieldEditLikeButton.addEventListener('click',(e)=>{

@@ -1,3 +1,15 @@
+
+const initMapData = ()=>{
+    Array.from(jsonsportData.features).forEach(element => {
+        element.properties['Popular'] = ''
+    });
+    
+}
+
+initMapData()
+setInterval( initMapData, 1000 * 60 * 60 * 24)
+///reset popularity once a day
+
 var map = L.map('map', {
     zoomControl:true, maxZoom:28, minZoom:1, zoom:7,
 }).fitBounds([[29.62402167801796,31.794698098564503],[33.62264212599872,38.40611842831727]]);
@@ -87,8 +99,6 @@ let fieldEditName =  document.getElementsByClassName('field-edit-name')[0]
 
 let currentLayer
 function notify(e){
-    // console.log(e.sourceTarget.feature.properties)
-    // console.log(e.originalEvent.active)
     let layer = layersportData._layers[e.sourceTarget._leaflet_id]
     currentLayer = layer
     console.log(layer)
@@ -97,7 +107,7 @@ function notify(e){
         fieldEdit.classList.toggle('collapse')
     }
     fieldEditName.innerHTML = e.sourceTarget.feature.properties['Field name']
-    // layer.setStyle({fillColor :'pink'})
+    updatePopularity()
 }
 
 map.createPane('panesportData');
