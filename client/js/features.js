@@ -22,7 +22,7 @@ let isCoordChosen = false
 let fieldDataSubmit = document.getElementsByClassName("field-data-submit")[0]
 
 fieldDataSubmit.addEventListener('click',async ()=>{
-let formFilled = isFormFilled()
+    let formFilled = isFormFilled()
     if(formFilled && isCoordChosen){
         isCoordChosen = false
         formFilled = false
@@ -114,10 +114,15 @@ let tt
         isAllowToAddField = false
         isCoordChosen = true
         addMarker(tempMarker)
+        // console.log(tempMarker._layers[tempMarker._leaflet_id - 1].feature)
+        jsonSportAddedData.push(tempMarker._layers[tempMarker._leaflet_id - 1].feature)
+        console.log(jsonSportAddedDataContainer)
+        updateLocalStorage()
+        
     }
 }
 
-function addMarker(e,tempMarker){
+function addMarker(e){
     layersportData._layers[e._leaflet_id - 1] = e._layers[e._leaflet_id - 1]
 }
 

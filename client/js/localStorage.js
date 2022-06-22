@@ -1,8 +1,7 @@
 
 function updateLocalStorage(){
-    if(window.localStorage.getItem !== null){
-        localStorage.removeItem('layerSport')
-
+    if(window.localStorage.getItem('sportAddedData') !== null){
+        localStorage.removeItem('sportAddedData')
     }
-    window.localStorage.setItem('layerSport', JSON.stringify(jsonsportData))
+    window.localStorage.setItem('sportAddedData', JSON.stringify(jsonSportAddedDataContainer))
 }

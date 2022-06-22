@@ -100,9 +100,7 @@ let currentLayer
 function notify(e){
     let layer
     if(layersportData._layers[e.sourceTarget._leaflet_id] === undefined){
-        console.log( 'null' )
         addMarker(e)
-        console.log(layersportData._layers[e.sourceTarget._leaflet_id])
         layer = layersportData._layers[e.sourceTarget._leaflet_id]
         currentLayer = layer
     }
@@ -110,8 +108,6 @@ function notify(e){
         layer = layersportData._layers[e.sourceTarget._leaflet_id]
         currentLayer = layer
     }
-    console.log(layer)
-    console.log(currentLayer)
     if(fieldEdit.classList.contains('collapse')){
         fieldEdit.classList.toggle('collapse')
     }
@@ -141,3 +137,49 @@ bounds_group.addLayer(layersportData);
 map.addLayer(layersportData);
 setBounds();
 
+if(window.localStorage.getItem('sportAddedData') !== null){
+    jsonSportAddedDataContainer = JSON.parse(localStorage.getItem('sportAddedData'))
+    console.log(jsonSportAddedDataContainer)
+    console.log(jsonsportData)
+    createLayerFromData()
+}
+console.log(window.localStorage.getItem('sportAddedData') !== null)
+var layersportDataAddition
+
+
+function createLayerFromData(){
+    layersportDataAddition = new L.geoJson(jsonSportAddedDataContainer, {
+        attribution: '',
+        interactive: true,
+        dataVar: 'jsonSportAddedDataContainer',
+        layerName: 'layersportDataAddition',
+        pane: 'panesportData',
+        pointToLayer: function (feature, latlng) {
+            var context = {
+                feature: feature,
+                variables: {},
+            };
+            return L.circleMarker(latlng, stylesportData_0(feature)).on('click',notify2);
+        },
+    });
+map.addLayer(layersportDataAddition);
+console.log(layersportDataAddition)
+}
+
+function notify2(e){
+    let layer
+    if(layersportDataAddition._layers[e.sourceTarget._leaflet_id] === undefined){
+        addMarker(e)
+        layer = layersportDataAddition._layers[e.sourceTarget._leaflet_id]
+        currentLayer = layer
+    }
+    else{
+        layer = layersportDataAddition._layers[e.sourceTarget._leaflet_id]
+        currentLayer = layer
+    }
+    if(fieldEdit.classList.contains('collapse')){
+        fieldEdit.classList.toggle('collapse')
+    }
+    fieldEditName.innerHTML = e.sourceTarget.feature.properties['Field name']
+    updatePopularity()
+}
