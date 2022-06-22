@@ -79,7 +79,6 @@ coordsButton.addEventListener('click',()=>{
 })
 
 function mapOver(){
-    console.log("mouseover")
     document.body.style.cursor = "crosshair";
     map.on('mousemove',mapMouseMove)
 }
@@ -114,7 +113,6 @@ let tt
         coordsText.innerHTML = "Latitude: " + mapEvent.latlng.lat +"<br>Longitude : " + mapEvent.latlng.lng
         isAllowToAddField = false
         isCoordChosen = true
-        // console.log(tempMarker._layers[tempMarker._leaflet_id - 1])
         addMarker(tempMarker)
     }
 }
@@ -160,7 +158,6 @@ function addLayerPopup(){
 }
 
 function removeTempMarker(){
-    console.log('removeTempMarker')
     tempMarker.remove()
     isAllowToAddField = true
     isCoordChosen = false
@@ -177,7 +174,6 @@ fieldEditExit.addEventListener('click',()=>{
 
 let fieldEditPopularResult = document.getElementsByClassName('field-edit-result')[0]
 function updatePopularity(){
-    console.log(currentLayer)
     let popularity = currentLayer.feature.properties.Popular
     let backgroundColor
     if( popularity !== ''){
@@ -209,9 +205,6 @@ fieldEditPop.addEventListener('click',changePopulation)
 fieldEditCrowded.addEventListener('click',changePopulation)
 
 function changePopulation(e){
-    console.log(e)
-    console.log(currentLayer)
-
     currentLayer.feature.properties.Popular = e.srcElement.innerHTML
     updatePopularity()
 }
@@ -244,8 +237,6 @@ fieldEditLikeButton.addEventListener('click',(e)=>{
         // document.body.appendChild(likeList)
         currentLayer.setStyle({fillColor :'rgba(232,113,141,1.0)'})
     }
-
-    console.log(currentLayer.feature.properties['Field name'])
 })
 
 let likesButton = document.getElementsByClassName('navbar-likes')[0]
