@@ -141,7 +141,6 @@ button:hover{
     border-radius: 5px;
     /* background-color: #e8f5f8cd; */
     background: linear-gradient(0deg, rgba(255, 210, 173, 0.879) 0%, rgba(250, 122, 130, 0.897) 100%);
-
     box-shadow: 1px 5px 5px 2px rgb(111, 115, 120);
     z-index: 2;
     font-weight: bold;
