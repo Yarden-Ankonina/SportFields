@@ -1,4 +1,4 @@
-
+let mapContainer = document.getElementsByClassName('map-container')[0]
 let fieldData = document.getElementsByClassName("field-data")[0]
 let newFieldDataExit = document.getElementsByClassName("field-data-exit")[0]
 
@@ -172,10 +172,56 @@ fieldEditExit.addEventListener('click',()=>{
 let fieldEditLikeButton = document.getElementsByClassName('field-like-button')[0]
 let likedFieldsList = []
 fieldEditLikeButton.addEventListener('click',(e)=>{
-    console.log(e)
-    // likedFieldsList.push()
+    if(!likedFieldsList.includes(currentLayer)){
+        // document.body.removeChild(likeList)
+        mapContainer.removeChild(likeList)
+        likedFieldsList.push(currentLayer)
+        let likedLine = document.createElement('div')
+        likedLine.className = currentLayer.feature.properties['Field name']
+        likedLine.style.fontWeight = "normal"
+        likedLine.innerHTML += currentLayer.feature.properties['Field name'] + '<br/>'
+        likeList.appendChild(likedLine)
+        // document.body.appendChild(likeList)
+        mapContainer.appendChild(likeList)
+        currentLayer.setStyle({fillColor :'dodgerblue'})
+    }
+    else{
+        let indexLayer = likedFieldsList.indexOf(currentLayer)
+        likedFieldsList.splice(indexLayer, 1)
+        let currentLikeDiv = document.getElementsByClassName(currentLayer.feature.properties['Field name'])[0]
+        likeList.removeChild(currentLikeDiv)
+        mapContainer.removeChild(likeList)
+        mapContainer.appendChild(likeList)
+
+        // document.body.removeChild(likeList)
+        // document.body.appendChild(likeList)
+        currentLayer.setStyle({fillColor :'rgba(232,113,141,1.0)'})
+    }
+
+    console.log(currentLayer.feature.properties['Field name'])
 })
 
-    setTimeout(()=>{
-        L.Control.geocoder().addTo(map)
-    },2000)                                                                                                         
+let likesButton = document.getElementsByClassName('navbar-likes')[0]
+likesButton.addEventListener('click',()=>{
+    likeList.classList.toggle('collapse')
+})
+
+let likeList
+createLikeList()
+function createLikeList(){
+    likeList = document.createElement('div')
+    likeList.className = " navbar-like-list collapse"
+    likeList.setAttribute('draggable','true')
+    likeList.setAttribute('id','likeList')
+    likeList.innerHTML = "Liked fields &#10084"
+    likeList.addEventListener('mousedown',async (e)=>{
+          dragElement(likeList);
+        })
+    mapContainer.appendChild(likeList)
+    // document.body.appendChild(likeList)
+}
+
+
+setTimeout(()=>{
+    L.Control.geocoder().addTo(map)
+},2000)                                                                                                         

@@ -85,10 +85,12 @@ function stylesportData_0() {
 }
 let fieldEditName =  document.getElementsByClassName('field-edit-name')[0]
 
+let currentLayer
 function notify(e){
-    console.log(e.sourceTarget.feature.properties)
-    console.log(e.originalEvent.active)
+    // console.log(e.sourceTarget.feature.properties)
+    // console.log(e.originalEvent.active)
     let layer = layersportData._layers[e.sourceTarget._leaflet_id]
+    currentLayer = layer
     console.log(layer)
 
     if(fieldEdit.classList.contains('collapse')){

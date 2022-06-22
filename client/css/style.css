@@ -127,6 +127,36 @@ button:hover{
 }
 
 
+.navbar-like-list{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    top: 1%;
+    right: 7%;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: #e8f5f8cd;
+    box-shadow: 1px 5px 5px 2px rgb(111, 115, 120);
+    z-index: 2;
+    font-weight: bold;
+}
+
+.navbar-like-list:hover{
+    background-color: #f5fdffcd;
+    cursor: pointer;
+}
+
+.navbar-like-list:not([class="collapse"]){
+    display: flex;
+ }
+ .navbar-like-list[class*="collapse"]{
+     display: none;
+ }
+ 
 
 .collapse-menu-container{
     position: absolute;
@@ -384,6 +414,9 @@ footer{
     .field-data-input{
         width: 80%;
     }
+    .navbar-like-list{
+        right: 7%;
+    }
 }
 
 @media all and (max-width: 750px) {
@@ -427,7 +460,10 @@ footer{
         display: inline;
         transition: all 0.5s;
     }
-
+    .navbar-like-list{
+        right: 1%;
+        top: 10%;
+    }
     .navbar-login{
         margin-bottom: 0.2em;
         margin-top: 0;
