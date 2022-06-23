@@ -1,2 +1,4 @@
-from = "/index.html"
-to = "/login.html"
+[[redirects]]
+from = '/home'
+status = 200
+to = '/index.html'
