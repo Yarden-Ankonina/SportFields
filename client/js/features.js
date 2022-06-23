@@ -114,7 +114,6 @@ let tt
         isAllowToAddField = false
         isCoordChosen = true
         addMarker(tempMarker)
-        // console.log(tempMarker._layers[tempMarker._leaflet_id - 1].feature)
         jsonSportAddedData.push(tempMarker._layers[tempMarker._leaflet_id - 1].feature)
         jsonSportAddedDataContainer.features = jsonSportAddedData
         updateLocalStorage()
