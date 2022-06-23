@@ -4,4 +4,5 @@ function updateLocalStorage(){
         localStorage.removeItem('sportAddedData')
     }
     window.localStorage.setItem('sportAddedData', JSON.stringify(jsonSportAddedDataContainer))
+
 }

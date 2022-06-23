@@ -116,9 +116,7 @@ let tt
         addMarker(tempMarker)
         // console.log(tempMarker._layers[tempMarker._leaflet_id - 1].feature)
         jsonSportAddedData.push(tempMarker._layers[tempMarker._leaflet_id - 1].feature)
-        console.log(jsonSportAddedDataContainer)
         updateLocalStorage()
-        
     }
 }
 
@@ -185,12 +183,15 @@ function updatePopularity(){
         switch(popularity){
             case 'Empty':
                 backgroundColor = "green"
+                currentLayer.setStyle({fillColor :'green'})
                 break;
             case 'Populated':
                 backgroundColor = "yellow"
+                currentLayer.setStyle({fillColor :'yellow'})
                 break;
             case 'Crowded':
             backgroundColor = "red"
+            currentLayer.setStyle({fillColor :'red'})
             break;
         }
     }
@@ -211,14 +212,19 @@ fieldEditCrowded.addEventListener('click',changePopulation)
 
 function changePopulation(e){
     currentLayer.feature.properties.Popularity = e.srcElement.innerHTML
-    updatePopularity()
+    updatePopularity()  
+    jsonSportAddedDataContainer.features.forEach(elm=>{
+        if(elm.properties['Field name'] === currentLayer.feature.properties['Field name']){
+            elm.properties.Popularity = currentLayer.feature.properties.Popularity
+        }
+    })
+    updateLocalStorage()
 }
 
 let fieldEditLikeButton = document.getElementsByClassName('field-like-button')[0]
 let likedFieldsList = []
 fieldEditLikeButton.addEventListener('click',(e)=>{
     if(!likedFieldsList.includes(currentLayer)){
-        // document.body.removeChild(likeList)
         mapContainer.removeChild(likeList)
         likedFieldsList.push(currentLayer)
         let likedLine = document.createElement('div')
@@ -226,7 +232,6 @@ fieldEditLikeButton.addEventListener('click',(e)=>{
         likedLine.style.fontWeight = "normal"
         likedLine.innerHTML += currentLayer.feature.properties['Field name'] + '<br/>'
         likeList.appendChild(likedLine)
-        // document.body.appendChild(likeList)
         mapContainer.appendChild(likeList)
         currentLayer.setStyle({fillColor :'dodgerblue'})
     }

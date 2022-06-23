@@ -50,7 +50,7 @@ var circleOptions = {
     weight: 1,
     fill: true,
     fillOpacity: 1,
-    fillColor: 'rgba(232,113,141,1.0)',
+    fillColor: '#b381ec',
     interactive: true,
  }
 

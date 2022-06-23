@@ -78,7 +78,22 @@ function popsportData(feature, layer) {
 
 
 
-function stylesportData_0() {
+function stylesportData_0(e) {
+    let fillColor = '#b381ec'
+    if(e.properties.Popularity !==''){
+        switch(e.properties.Popularity){
+            case 'Empty':
+                fillColor = 'green'
+                break;
+            case 'Populated':
+                fillColor = 'yellow'
+                break;
+            case 'Crowded':
+                fillColor = 'red'
+            break;
+        }
+    }
+    
     return {
         pane: 'panesportData',
         radius: 6.0,
@@ -90,7 +105,7 @@ function stylesportData_0() {
         weight: 1,
         fill: true,
         fillOpacity: 1,
-        fillColor: 'rgba(232,113,141,1.0)',
+        fillColor: fillColor,
         interactive: true,
     }
 }
@@ -137,13 +152,11 @@ bounds_group.addLayer(layersportData);
 map.addLayer(layersportData);
 setBounds();
 
+
 if(window.localStorage.getItem('sportAddedData') !== null){
     jsonSportAddedDataContainer = JSON.parse(localStorage.getItem('sportAddedData'))
-    console.log(jsonSportAddedDataContainer)
-    console.log(jsonsportData)
     createLayerFromData()
 }
-console.log(window.localStorage.getItem('sportAddedData') !== null)
 var layersportDataAddition
 
 
@@ -171,7 +184,6 @@ function popupAttach(e,layer){
     Object.entries(e.properties).forEach(element =>{
         popupText += element[0] +": "+ element[1] + '<br/>'
     })
-    console.log(e.properties)
     layer.bindPopup(popupText)
 }
 

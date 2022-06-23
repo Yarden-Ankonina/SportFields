@@ -18,7 +18,16 @@ function createAboutModal(text,subText){
     modalAbout.style.fontWeight = 'bold'
     subTextModal.style.fontWeight = 'normal'
     subTextModal.style.textAlign = 'left'
+
+    let reset = document.createElement('button')
+    reset.innerHTML = 'Reset App'
+    reset.style.margin = '0.2em'
+    reset.addEventListener('click',()=>{
+        localStorage.clear()
+        window.location.reload()
+    })
     modalAbout.appendChild(subTextModal)
+    modalAbout.appendChild(reset)
     document.body.appendChild(modalAbout)
     return modalAbout
 }
