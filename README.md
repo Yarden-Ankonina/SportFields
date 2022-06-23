@@ -1,7 +1,5 @@
 ## SportFields
 
-SportFields
-
 The SportFields app has a geographical map interface to help you easily find available sports facilities to play various sports near you.<br/> 
 
 Click on any existing field on the map, to see more about it: <br/>
