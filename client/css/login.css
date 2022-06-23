@@ -89,7 +89,7 @@ input[type=button]{
     font-weight: bold;
     }
 
-    @media all and (max-width: 1100px){
+    @media all and (max-width: 1400px){
         #form_id{
             display: flex;
             flex-direction: column;
@@ -97,7 +97,7 @@ input[type=button]{
             align-items: center;
         }
         #password{
-            margin-left: 14px;
+            margin-left: 12px;
         }
     }
 
