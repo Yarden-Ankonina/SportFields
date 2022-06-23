@@ -245,7 +245,7 @@ fieldEditLikeButton.addEventListener('click',(e)=>{
 
         // document.body.removeChild(likeList)
         // document.body.appendChild(likeList)
-        currentLayer.setStyle({fillColor :'rgba(232,113,141,1.0)'})
+        currentLayer.setStyle({fillColor :'#b381ec'})
     }
 })
 
