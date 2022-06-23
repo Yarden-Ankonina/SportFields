@@ -48,3 +48,12 @@
     font-size: 12px;
     font-weight: bold;
 }   
+
+@media all and (max-width : 420px){
+    .modal{
+        width: 90%;
+        margin-left: 0;
+        left: 5%;
+        font-size: 14px;
+    }
+}
