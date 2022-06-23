@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Javascript Login Form Validation</title>
+    <!-- Include CSS File Here -->
+    <link rel="stylesheet" href="css/login.css" />
+    <!-- Include JS File Here -->
+    <script src="js/login.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-main">
+        <div class="login-title">SportFields Login Form Validation</div>
+            <div class="form-container">
+                <form id="form_id" method="post" name="myform">
+                  <span class="login-username">
+                    <label>User Name :</label>
+                    <input type="text" name="username" id="username" />
+                  </span>
+                  <span class="login-password">
+                    <label>Password :</label>
+                    <input type="password" name="password" id="password" />
+                  </span>
+                    <input type="button" value="Login" id="submit" onclick="validate()" />
+                </form>
+                <span>
+                    <b class="note">Note : </b>For this demo use the following username and password. <br />
+                    <b class="valid">User Name : Sportfields <br />Password : Sportfields#123 </b>
+                </span>
+            </div>
+      </div>
+    </div>
+  </body>
+</html>
