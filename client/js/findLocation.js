@@ -15,6 +15,20 @@ myLocation.addEventListener('click',()=>{
       });
 })
 
+map.on('zoom',(e)=>{
+    console.log(e.sourceTarget._zoom)
+    if(map._zoom < 8){
+        layersportData.setStyle({"radius":2})
+    }
+    if(map._zoom >= 8 && map._zoom <10){
+        layersportData.setStyle({"radius":4})
+    }
+    else  if(map._zoom >= 10 && map._zoom < 12){
+        layersportData.setStyle({"radius":6})
+    }
+   
+    })
+
  function createMarker(location){
     L.marker(location).addTo(map)
     .bindPopup('My Location :' + location.toString())

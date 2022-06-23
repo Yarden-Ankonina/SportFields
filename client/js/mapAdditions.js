@@ -96,7 +96,7 @@ function stylesportData_0(e) {
     
     return {
         pane: 'panesportData',
-        radius: 6.0,
+        radius: 2.0,
         opacity: 1,
         color: 'rgba(35,35,35,1.0)',
         dashArray: '',
